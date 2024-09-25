@@ -3,10 +3,10 @@
 
 int main () {
 
-    shapes circle(1/3.14);
+    circle *circle1 = new circle(1/3.14);
 
-    assert(circle.get_area() == (1/3.14));
-    assert(circle.get_perimeter() == (2) );
+    assert(circle1->get_area() == (1/3.14));
+    assert(circle1->get_perimeter() == (2) );
 
 
 
