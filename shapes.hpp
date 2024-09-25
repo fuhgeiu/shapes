@@ -46,11 +46,18 @@ public:
 
 };
 
-class right_triangle : public shapes {
+class RightTriangle : public Shape {
+private:
+    double base;  
+    double height; 
+public:
+    RightTriangle(double b, double h) : base(b), height(h) {}
 
-    int get_area()
-
-    int get_perimeter()
-
-
+    double getarea() const override {
+        return 0.5 * base * height;
+    }
+    double getperimeter() const override {
+        double hypotenuse = sqrt(base * base + height * height);
+        return base + height + hypotenuse; 
+    }
 };
