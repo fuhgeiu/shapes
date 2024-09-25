@@ -1,12 +1,11 @@
 
 class shapes {
 
-
 public:
 
-    virtual get_area ();
+    virtual int get_area () = 0;
 
-    virtual get_perimeter();
+    virtual int get_perimeter() = 0;
 
 };
 
@@ -18,39 +17,33 @@ class circle : public shapes{
 
 public:
 
-    circle (int Radius) {radius = Radius }
+    circle (double Radius) {radius = Radius; }
 
-    int get_area (int radius) {
+    const double get_area ()  const { return (3.14*(radius*radius)); }
 
-        return ()
-    }
-
-    int get_perimeter() {
-
-        return (3.14*)
-    }
-
+    const int get_perimeter() const { return (2*3.14*radius); }
 };
 
 class rectangle : public shapes {
 
-
+    int side1, side2;
 
 public:
 
-    rectangle (int )
+    rectangle (int Side1, int Side2) {side1 = Side1; side2 = Side2;}
 
-    int get_area()
+    const int get_area() const {return (side1*side2);}
 
-    int get_perimeter()
+    const int get_perimeter() const {return ((side1*2)+(side2*2));}
 
 };
 
 class right_triangle : public shapes {
 
-    int get_area()
 
-    int get_perimeter()
+    int get_area();
+
+    int get_perimeter();
 
 
 };

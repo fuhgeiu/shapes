@@ -1,12 +1,12 @@
 #include "shapes.hpp"
-#incldue <cassert>
+#include <cassert>
 
 int main () {
 
-    shapes circle;
+    shapes circle(1/3.14);
 
-    assert(circle.get_area() ==  );
-
+    assert(circle.get_area() == (1/3.14));
+    assert(circle.get_perimeter() == (2) );
 
 
 
