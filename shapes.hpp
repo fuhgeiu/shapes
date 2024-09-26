@@ -1,13 +1,13 @@
 #include <iostream>
-
+#include <cmath>
 
 class shapes {
 
 public:
 
-    virtual double get_area () = 0;
+    virtual double getarea () const = 0;
 
-    virtual double get_perimeter() = 0;
+    virtual double getperimeter() const = 0;
 };
 
 // circle, rectangle, right triangle
