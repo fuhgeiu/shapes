@@ -10,7 +10,7 @@ public:
     virtual double get_perimeter() = 0;
 };
 
-// circle, rectangel, right triangle
+// circle, rectangle, right triangle
 
 class circle : public shapes{
 
@@ -49,19 +49,30 @@ public:
 
     square(double side) { double side1 = side;}
 
-    double get_perimeter() const {return (side1*2);}
+    double get_perimeter() const override{return (side1*2);}
 
-    double get_area()  const {return (side1*side1);}
+    double get_area()  const override {return (side1*side1);}
 };
 
 
+class RightTriangle : public shapes {
+private:
+    double base;
+    double height;
+public:
+    RightTriangle(double b, double h) : base(b), height(h) {}
 
-class right_triangle : public shapes {
+    double getarea() const override {
+        return 0.5 * base * height;
+    }
+    double getperimeter() const override {
+        double hypotenuse = sqrt(base * base + height * height);
+        return base + height + hypotenuse;
+    }
+};
 
 
-    double get_area();
-
-    double get_perimeter();
-
-
+class IsoscelesRightTriangle : public RightTriangle {
+public:
+    IsoscelesRightTriangle(double leg) : RightTriangle(leg, leg) {}
 };
