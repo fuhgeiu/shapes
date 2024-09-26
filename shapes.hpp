@@ -5,9 +5,11 @@ class shapes {
 
 public:
 
-    virtual double get_area () = 0;
+    virtual const double get_area () const = 0;
 
-    virtual double get_perimeter() = 0;
+    virtual const double get_perimeter() const = 0;
+
+    virtual const char* name() const = 0;
 };
 
 // circle, rectangle, right triangle
@@ -20,9 +22,11 @@ public:
 
     circle (double Radius) {radius = Radius; }
 
-    double get_area ()  const { return (3.14*(radius*radius)); }
+    const double get_area () const { return (3.14*(radius*radius)); }
 
-    double get_perimeter() const { return (2*3.14*radius); }
+    const double get_perimeter() const { return (2*3.14*radius); }
+
+    const char* name () const {return "circle";}
 };
 
 class rectangle : public shapes {
@@ -35,9 +39,11 @@ public:
 
     rectangle (int Side1, int Side2) {side1 = Side1; side2 = Side2;}
 
-    virtual double get_area() const {return (side1*side2);}
+    virtual const double get_area() const {return (side1*side2);}
 
-    virtual double get_perimeter() const {return ((side1*2)+(side2*2));}
+    virtual const double get_perimeter() const {return ((side1*2)+(side2*2));}
+
+    const char* name () const {return "rectangle";}
 };
 
 
@@ -47,11 +53,13 @@ class square : public rectangle {
 
 public:
 
-    square(double side) { double side1 = side;}
+    explicit square(double side) { side1 = side;}
 
-    double get_perimeter() const override{return (side1*2);}
+    const double get_perimeter() const {return (side1*2);}
 
-    double get_area()  const override {return (side1*side1);}
+    const double get_area()  const {return (side1*side1);}
+
+    const char* name () const {return "square";}
 };
 
 
@@ -62,13 +70,15 @@ private:
 public:
     RightTriangle(double b, double h) : base(b), height(h) {}
 
-    double getarea() const override {
+    const double get_area() const {
         return 0.5 * base * height;
     }
-    double getperimeter() const override {
+    const double get_perimeter() const {
         double hypotenuse = sqrt(base * base + height * height);
         return base + height + hypotenuse;
     }
+
+    const char* name () const {return "right triangle";}
 };
 
 
