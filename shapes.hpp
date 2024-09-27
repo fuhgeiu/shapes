@@ -64,25 +64,26 @@ public:
 
 
 class RightTriangle : public shapes {
-private:
+protected:
     double base;
     double height;
 public:
     RightTriangle(double b, double h) : base(b), height(h) {}
 
-    const double get_area() const {
-        return 0.5 * base * height;
-    }
-    const double get_perimeter() const {
-        double hypotenuse = sqrt(base * base + height * height);
-        return base + height + hypotenuse;
-    }
+    const double get_area() const {return 0.5 * base * height;}
+    const double get_perimeter() const {return base + height + sqrt(base * base + height * height);}
 
     const char* name () const {return "right triangle";}
 };
 
 
 class IsoscelesRightTriangle : public RightTriangle {
+
 public:
-    IsoscelesRightTriangle(double leg) : RightTriangle(leg, leg) {}
+    explicit IsoscelesRightTriangle(double leg) : RightTriangle(leg, leg) {}
+
+    const double get_area() const {return ((base*base)/2);}
+    const double get_perimeter() const {return ((2*base) + (base*sqrt(2)));}
+
+    const char* name () const {return "iso right triangle";}
 };
